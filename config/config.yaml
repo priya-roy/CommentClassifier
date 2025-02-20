@@ -1,0 +1,41 @@
+artifacts_root: artifacts
+
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://github.com/priya-roy/unhealthy-comments-Dataset/raw/refs/heads/main/commentClassification.zip
+  local_data_file: artifacts/data_ingestion/data.zip
+  unzip_dir: artifacts/data_ingestion
+
+# Data Transformation Configuration
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_path: artifacts/data_ingestion/commentClassification
+  tokenizer: "nltk"  # Tokenisation library to use
+
+# Model Trainer Configuration
+model_trainer:
+  model_type: "logistic_regression"  # Type of model to train
+  solver: "liblinear"  # Solver for Logistic Regression
+  penalty: "l2"  # Regularisation type
+  random_state: 42  # Random state for reproducibility
+  max_iter: 200  # Maximum iterations for convergence
+  class_weight: "balanced"  # Handle class imbalance automatically
+
+# Model Evaluation Configuration
+model_evaluation:
+  metrics:  # Metrics to evaluate the model
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1_score"
+  validation_split: 0.2  # Percentage of training data to use for validation
+  cross_validation: true  # Enable cross-validation
+  cv_folds: 5  # Number of folds for cross-validation
+
+# Output Configuration
+output:
+  model_save_path: "models/trained_model.pkl"  # Path to save the trained model
+  vectorizer_save_path: "models/tfidf_vectorizer.pkl"  # Path to save the TF-IDF vectoriser
+  evaluation_report_path: "reports/evaluation_report.txt"  # Path to save the evaluation report
+  log_file_path: "logs/pipeline.log"  # Path to save the pipeline logs
