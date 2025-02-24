@@ -29,12 +29,11 @@ tfidf_vectorizer:
 
 # Model Trainer Configuration
 model_trainer:
-  model_type: "logistic_regression"  # Type of model to train
-  solver: "liblinear"  # Solver for Logistic Regression
-  penalty: "l2"  # Regularisation type
-  random_state: 42  # Random state for reproducibility
-  max_iter: 200  # Maximum iterations for convergence
-  class_weight: "balanced"  # Handle class imbalance automatically
+  root_dir: artifacts/model_trainer
+  data_path: artifacts/data_transformation/commentClassification
+  tokenizer_name: "nltk"  # Tokenisation library to use
+  text_column: "comment"  # Column containing the text comments
+  label_column: "healthy" # Column containing the labels (0: Toxic, 1: Healthy)
 
 # Model Evaluation Configuration
 model_evaluation:

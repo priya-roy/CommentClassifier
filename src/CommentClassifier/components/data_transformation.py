@@ -1,7 +1,7 @@
 import os
 from src.CommentClassifier.logging import logger
 from datasets import load_from_disk
-import os
+
 import pandas as pd
 import seaborn as sns
 import yaml

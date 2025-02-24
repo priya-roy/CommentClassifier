@@ -19,3 +19,20 @@ class DataTransformationConfig:
     lowercase: bool
     remove_special_characters: bool
     remove_extra_spaces: bool
+
+@dataclass    
+class ModelTrainerConfig:
+    root_dir: Path
+    data_path: Path
+    tokenizer_name: str
+    text_column: str
+    label_column: bool
+    penalty: str
+    random_state: int
+    max_iter: int
+    class_weight: str
+    max_features: str
+    ngram_range: list
+    stop_words: str
+    min_df: int
+    max_df:float
