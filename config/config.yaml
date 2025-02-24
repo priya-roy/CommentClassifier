@@ -45,6 +45,13 @@ model_evaluation:
   validation_split: 0.2  # Percentage of training data to use for validation
   cross_validation: true  # Enable cross-validation
   cv_folds: 5  # Number of folds for cross-validation
+  root_dir: artifacts/model_evaluation
+  data_path: artifacts/data_transformation/commentClassification
+  model_path: artifacts/model_trainer/model.pkl
+  tokenizer_path: artifacts/model_trainer/tfidf_vectorizer.pkl
+  metric_file_name: artifacts/model_evaluation/metrics.csv
+  text_column: "comment"  # Column containing the text comments
+  label_column: "healthy" # Column containing the labels (0: Toxic, 1: Healthy)
 
 # Output Configuration
 output:

@@ -36,3 +36,17 @@ class ModelTrainerConfig:
     stop_words: str
     min_df: int
     max_df:float
+    
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    data_path: Path
+    model_path: Path
+    tokenizer_path: Path
+    metric_file_name: Path
+    metrics: list[str]
+    validation_split: float
+    cross_validation: bool
+    cv_folds: int
+    text_column: str
+    label_column: bool
